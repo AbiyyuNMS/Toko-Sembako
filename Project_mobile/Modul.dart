@@ -7,7 +7,7 @@ class Barang {
   int? harga;
   int? total_harga;
 }
-
+// Read
 void tampilData(List<Barang> data) {
   if (data.isEmpty) {
     print("Belum ada barang!");
@@ -24,7 +24,7 @@ void tampilData(List<Barang> data) {
         "=============================================================================");
   }
 }
-
+// Create
 void tambahData(List<Barang> data) {
   stdout.write("Masukkan ID Barang: ");
   var id = int.parse(stdin.readLineSync()!);
@@ -42,7 +42,7 @@ void tambahData(List<Barang> data) {
   data.add(baru);
   print("Selamat $nama sudah ditambah ke dalam list =)");
 }
-
+// Update
 void ubahData(List<Barang> data) {
   bool flag = false;
   stdout.write("Cari id yang mau diubah: ");
@@ -69,7 +69,7 @@ void ubahData(List<Barang> data) {
     print("Data tidak bisa ditemukan");
   }
 }
-
+// Delete
 void hapusData(List<Barang> data) {
   bool flag = false;
   stdout.write("Cari Id barang yang mau dihapus: ");
@@ -85,7 +85,7 @@ void hapusData(List<Barang> data) {
     print("ID Tidak Ditemukan");
   }
 }
-
+// Search
 void cariBarang(List<Barang> data) {
   bool flag = false;
   if (data.isEmpty) {
@@ -112,7 +112,7 @@ void cariBarang(List<Barang> data) {
     }
   }
 }
-
+// Tranctatction
 void transaksiBarang(List<Barang> data) {
   tampilData(data);
   bool flag = false;
