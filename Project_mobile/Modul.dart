@@ -120,20 +120,16 @@ void transaksiBarang(List<Barang> data) {
   var idBarang = int.parse(stdin.readLineSync()!);
   for (int i = 0; i < data.length; i++) {
     if (data[i].id == idBarang) {
-      stdout.write("Masukkan Nama barang yang mau dibeli: ");
-      var namaBarang = stdin.readLineSync()!;
       stdout.write("Masukkan jumlah barang yang mau dibeli: ");
       var jmlhBeli = int.parse(stdin.readLineSync()!);
       if (jmlhBeli <= data[i].stok!) {
-        stdout.write("Masukkan Harga barang yang mau dibeli: ");
-        var hrgBarang = int.parse(stdin.readLineSync()!);
         stdout.write("Masukkan Saldo anda: ");
         var saldo = int.parse(stdin.readLineSync()!);
 
         Barang beli = Barang();
         beli.id = idBarang;
-        beli.nama = namaBarang;
-        beli.harga = hrgBarang;
+        beli.nama = data[i].nama;
+        beli.harga = data[i].harga;
         beli.stok = data[i].stok! - jmlhBeli;
         beli.total_harga = data[i].harga! * jmlhBeli;
         data[i] = beli;
