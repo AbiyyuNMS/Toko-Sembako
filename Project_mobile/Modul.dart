@@ -44,6 +44,7 @@ void tambahData(List<Barang> data) {
 }
 // Update
 void ubahData(List<Barang> data) {
+  tampilData(data);
   bool flag = false;
   stdout.write("Cari id yang mau diubah: ");
   var idBarang = int.parse(stdin.readLineSync()!);
@@ -116,7 +117,10 @@ void cariBarang(List<Barang> data) {
 void transaksiBarang(List<Barang> data) {
   tampilData(data);
   bool flag = false;
-  stdout.write("Masukkan ID Barang yang mau dibeli: ");
+  if (data.isEmpty){
+    print ("Tidak Ada Data Untuk DiTransaksikan !!!");
+  } else{
+    stdout.write("Masukkan ID Barang yang mau dibeli: ");
   var idBarang = int.parse(stdin.readLineSync()!);
   for (int i = 0; i < data.length; i++) {
     if (data[i].id == idBarang) {
@@ -154,6 +158,7 @@ ${data[i].nama}   $jmlhBeli     ${beli.total_harga}
 ''');
       }
     }
+  }
   }
   if (!flag) {
     print("Data barang tidak ditemukan.");
